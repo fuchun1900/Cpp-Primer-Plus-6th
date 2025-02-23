@@ -2,11 +2,22 @@
 #include <iostream>
 
 using namespace std;
-void blind_mice();
+void blind_mice(int);
 void how_they_run();
 
-void blind_mice() {
-    cout << "Three blind mice." << endl;
+void blind_mice(int n) {
+    if (n > 0)
+    {
+        cout << "Three blind mice." << endl;
+        blind_mice(n - 1);
+    }
+    else if (n == 0)
+    {
+        return;
+    }
+    
+    how_they_run();
+    
     return;
 }
 
@@ -17,10 +28,7 @@ void how_they_run() {
 
 int main() {
 
-    blind_mice();
-    blind_mice();
+    blind_mice(2);
 
-    how_they_run();
-    how_they_run();
     return 0;
 }
