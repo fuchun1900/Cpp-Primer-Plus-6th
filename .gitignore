@@ -6,4 +6,11 @@ a.out
 
 .idea/
 .vscode/
-bookcodes/chapter01/bin/helloword
+# 忽略所有子目录中的 bin 文件夹中的 .out 文件
+**/bin/*.out
+
+# 忽略所有子目录中的 bin 文件夹中的 .exe 文件
+**/bin/*.exe
+
+# 或者忽略所有子目录中的 bin 文件夹中的所有文件
+**/bin/*
