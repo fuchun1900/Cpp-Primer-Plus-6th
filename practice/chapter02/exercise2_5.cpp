@@ -1,23 +1,20 @@
-// Create by Shujia Huang on 2021-07-19
+// Create by fuchun on 2025-02-23
 
 #include <iostream>
+using namespace std;
 
-
-double celsiu2fahrenit(double celsius) {
-    return 1.8 * celsius + 32.0;
-}
-
+double celsiusToFahrenheit(double);
 
 int main() {
-
-    using namespace std;
-
+    cout << "Please enter the Celsius value:  ";
     double celsius;
-    cout << "Please enter a celsius value: ";
     cin >> celsius;
+    cout << celsius << " degrees Celsius is " << celsiusToFahrenheit(celsius) << " degrees Fahrenheit." << endl;
 
-    cout << celsius << " degrees Celsius is "
-         << celsiu2fahrenit(celsius) << " degrees Fahrenheit." << endl;
 
     return 0;
+}
+
+double celsiusToFahrenheit(double celsius) {
+    return 1.8 * celsius + 32.0;
 }

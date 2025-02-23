@@ -2,6 +2,8 @@
 #include <iostream>
 
 using namespace std;
+void blind_mice();
+void how_they_run();
 
 void blind_mice() {
     cout << "Three blind mice." << endl;

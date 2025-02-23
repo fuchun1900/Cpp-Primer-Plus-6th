@@ -1,27 +1,23 @@
-// Create by Shujia Huang on 2021-07-19
+// Create by fuchun on 2025-02-23
 
 #include <iostream>
-
 using namespace std;
-
-
-void display_time(double hours, double minutes) {
-
+void covertToMinutes(int hours, int minutes) {
     cout << "Time: " << hours << ":" << minutes << endl;
 
     return;
 }
 
 int main() {
-
-    double hours, minutes;
-    cout << "Enter the number of hours: ";
+    cout << "Enter the number of hours : " << endl;
+    int hours;
     cin >> hours;
-
-    cout << "Enter the number of minutes: ";
+    cout << "Enter the number of minutes : " << endl;
+    int minutes;
     cin >> minutes;
 
-    display_time(hours, minutes);
+    covertToMinutes(hours, minutes);
 
+    
     return 0;
 }
