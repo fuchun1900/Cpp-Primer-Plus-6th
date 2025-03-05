@@ -1,38 +1,30 @@
-// Create by Shujia Huang on 2021-07-20
+// Create by fuchun on 2025-03-05
 #include <iostream>
 
-const int Foot2Inch = 12;
-const double Inch2Meter = 0.0254;
-const double Kg2Pound = 2.2;
+const int foot_to_inches = 12;
+const double inches_to_meter = 0.0254;
+const double pounds_to_kg = 2.2;
 
-double BMI(double weight, double height) {
+double BMI(double , double );
 
-    return weight/(height*height);
-}
-
-int main() {
-
+int main()
+{
     using namespace std;
+    double feet, inches, pounds;
+    cout << "Please enter your height in feet and inches: ";
+    cin >> feet >> inches;
+    cout << "Please enter your weight in pounds: ";
+    cin >> pounds; 
 
-    double height_foot = 0;
-    double height_inch = 0;
-    double weight_pound = 0;
+    double height = (feet * foot_to_inches + inches) * inches_to_meter;
+    double wieght = pounds / pounds_to_kg;
 
-    cout << "Please enter your height in foot and Inch2Meter." << endl;
-    cout << "Enter the foot of height: __\b\b";
-    cin >> height_foot;
-
-    cout << "Enter the inch of height: __\b\b";
-    cin >> height_inch;
-
-    cout << "Please enter your weight in pound: __\b\b";
-    cin >> weight_pound;
-
-    double height_meter = (height_foot * Foot2Inch + height_inch) * Inch2Meter;
-    double weight_kg = weight_pound / Kg2Pound;
-    double bmi = BMI(weight_kg, height_meter);
-
-    cout << "Your BMI is: " << bmi << endl;
+    cout << "Your BMI is " << BMI(height, wieght) << endl;
 
     return 0;
+}
+
+double BMI(double height, double weight)
+{
+    return weight / (height * height);
 }

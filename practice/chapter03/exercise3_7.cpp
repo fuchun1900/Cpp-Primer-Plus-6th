@@ -1,19 +1,20 @@
-// Create by Shujia Huang on 2021-07-20
+// Create by fuchun on 2025-03-05
 #include <iostream>
+
+const double gallon_to_liter = 3.87541;
+const double km_to_miles = 0.621371;
 
 int main() {
     using namespace std;
 
-    const double Km2Mile = 0.6214;
-    const double Gallon2Litre = 3.875;
-
-    double fuel_comsuption_en = 0.0;
-    cout << "Enter the fuel comsuption in European standard: ";
-    cin >> fuel_comsuption_en;
-
-    double fuel_comsuption_us = (100 * Km2Mile) / (fuel_comsuption_en/Gallon2Litre);
-    cout << "The fuel comsuption in US standard is " << fuel_comsuption_us 
-         << " Miles/Gallon (mpg)." << endl;  
+    double consumption;
+    cout << "Enter the fuel consumption in liters per 100 kilometers: ";
+    cin >> consumption;
+    
+    cout << "Your car's fuel consumption  (Euro style) is " << consumption << " liters per 100 kilometers." << endl;
+    cout << "Your car's fuel consumption (US style) is " <<  (100 * km_to_miles) / (consumption / gallon_to_liter) 
+    << " miles per gallon." << endl;
+ 
 
     return 0;
 }

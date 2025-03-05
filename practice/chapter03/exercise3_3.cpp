@@ -1,25 +1,22 @@
-// Create by Shujia Huang on 2021-07-20
+// Create by fuchun on 2025-03-05
 #include <iostream>
 
-int main() {
+const int trans_factor = 60;
 
+int main()
+{
     using namespace std;
-
-    double degree, minutes, seconds;
-
-    cout << "Enter a latitude in degree, minutes and seconds." << endl;
-    cout << "First, enter the degree: ";
-    cin >> degree;
-
+    float degrees, minutes, seconds;
+    cout << "Enter a latitude in degrees, minutes, and seconds:" << endl;
+    cout << "First, enter the degrees: ";
+    cin >> degrees;
     cout << "Next, enter the minutes of arc: ";
     cin >> minutes;
-
     cout << "Finally, enter the seconds of arc: ";
     cin >> seconds;
 
-    double degree2 = degree + minutes/60 + seconds/3600;
-    cout << degree << " degrees, " << minutes << " minutes, "
-         << seconds << " seconds = " << degree2 << endl;
-
+    double latitude = degrees + minutes / trans_factor + seconds / (trans_factor * trans_factor);
+    cout << degrees << " degrees, " << minutes << " minutes, " << seconds << " seconds = " << latitude << " degrees" << endl;
+    
     return 0;
 }

@@ -1,17 +1,21 @@
-// Create by Shujia Huang on 2021-07-20
+// Create by fuchun on 2025-03-05
 #include <iostream>
+const double gallon_to_liter = 3.78541;
+const double mile_to_km = 1.60934;
 
 int main() {
     using namespace std;
-    double kilometer, oil_liter;
+    double miles;
+    double gallons;
+    cout << "Enter the number of miles: ";
+    cin >> miles;
+    cout << "Enter the number of gallons: ";
+    cin >> gallons;
+    cout << "Your car's fuel consumption is " << miles / gallons << " miles per gallon." << endl;
+    cout << "Your car's fuel consumption is " << (gallons * gallon_to_liter) / (miles * mile_to_km)  * 100
+    << " liters per 100 kilometers." << endl;
 
-    cout << "Enter the distance that you've dirver in kilometer: ";
-    cin >> kilometer;
 
-    cout << "Enter the comsumption of oil: ";
-    cin >> oil_liter;
-
-    double kilometer_per_liter = kilometer / oil_liter;
-    cout << "The average fuel comsumption is " 
-         << 100 / kilometer_per_liter << " L/100km" << endl;
+    return 0;
+    
 }
