@@ -1,32 +1,26 @@
-// Create by Shujia Huang on 2021-07-25
+// Create by fuchun on 2025-03-16
 #include <iostream>
-#include <string>
 
 struct Pizza
 {
-    std::string company;
+    char company_name [30];
     double diameter;
     double weight;
-    
 };
-
-int main() {
+int main()
+{
     using namespace std;
-
     Pizza pizza;
-    cout << "Enter the pizza company: ";
-    getline(cin, pizza.company);
-
-    cout << "Enter the diameter of pizza: ";
+    cout << "Enter the company name: ";
+    cin.getline(pizza.company_name, 30);
+    cout << "Enter the diameter of the pizza: ";
     cin >> pizza.diameter;
+    cout << "Enter the weight of the pizza: ";
+    cin >> pizza.weight;   
 
-    cout << "Enter the weight of pizza: ";
-    cin >> pizza.weight;
-
-    cout << "\nHere is the pizza information: \n"
-         << "Company: " << pizza.company << "\n"
-         << "Diameter: " << pizza.diameter << "\n"
-         << "Weight: " << pizza.weight << endl;
+    cout << "Company name: " << pizza.company_name << endl;
+    cout << "Diameter: " << pizza.diameter << endl;
+    cout << "Weight: " << pizza.weight << endl;
 
     return 0;
 }

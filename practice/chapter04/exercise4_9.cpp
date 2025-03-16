@@ -1,42 +1,40 @@
-// Create by Shujia Huang on 2021-07-25
+// Create by fuchun on 2025-03-16
 
 #include <iostream>
-#include <string>
+using namespace std;
 
 struct CandyBar
 {
-    std::string name;
+    char brand[20];
     double weight;
     int calories;
 };
 
+int main()
+{
+    CandyBar *str = new CandyBar[3];
 
-int main() {
+    for (size_t i = 0; i < 3; i++)
+    {
+       cout << "Enter brand name of candy bar: ";
+       cin.getline(str[i].brand, 20);
+       cout << "Enter weight of the candy bar: ";
+       cin >> (str + i)->weight;
+       cout << "Enter calories (an integer value) in the candy bar: ";
+       cin >> (*(str + i)).calories;
+       cin.get(); // clear the newline character in the input buffer
+    }
 
-    using namespace std;
+    for (size_t i = 0; i < 3; i++)
+    {
+        cout << "Brand: " << str[i].brand << endl;
+        cout << "Weight: " << str[i].weight << endl;
+        cout << "Calories: " << str[i].calories << endl;
+    }
 
-    CandyBar *p_candybar = new CandyBar [3] {
-        {"Mocha Munch", 2.3, 350},
-        {"Big Rabbit", 5, 300},
-        {"Joy Boy", 4.1, 430}
-    };
-
-    // 输出第一个结构体元素，按照数组的方式输出
-    cout << "The name of the CandyBar: " << p_candybar[0].name << "\n"
-         << "The weight of the candy: " << p_candybar[0].weight << "\n"
-         << "The calories information: " << p_candybar[0].calories << "\n\n";
-
-    // 输出第二个结构体元素，可以按照指针的逻辑输出
-    cout << "The name of the CandyBar: " << (p_candybar+1)->name << "\n"
-         << "The weight of the candy: " << (p_candybar+1)->weight << "\n"
-         << "The calories information: " << (p_candybar+1)->calories << "\n\n";
-
-    // 输出第三个结构体元素，又是数据的方式
-    cout << "The name of the CandyBar: " << p_candybar[2].name << "\n"
-         << "The weight of the candy: " << p_candybar[2].weight << "\n"
-         << "The calories information: " << p_candybar[2].calories << endl;
-
-    delete [] p_candybar;
+    delete [] str;
 
     return 0;
+    
 }
+

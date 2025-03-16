@@ -5,8 +5,7 @@ using namespace std;
 char * getname(void);   // function prototype
 int main()
 {
-    char * name;        // create pointer but no storage
-    name = getname();   // assign address of string to name
+    char * name = getname();   // assign address of string to name
 
     cout << name << " at " << (int *) name << "\n";
     delete [] name;     // memory freed

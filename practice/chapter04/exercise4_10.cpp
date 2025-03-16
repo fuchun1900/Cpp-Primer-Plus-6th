@@ -1,23 +1,23 @@
-// Create by Shujia Huang on 2021-07-25
+// Create by fuchun on 2025-03-16
 #include <iostream>
 #include <array>
 
-int main() {
-
+const int times  = 3;
+int main()
+{
     using namespace std;
+    array<double, times> result;
+    double avg = 0.0;
 
-    array<double, 3> result;
-
-    cout << "Enter threed result of the 40 meters runing time: \n";
+    cout << "Enter the first time: ";
     cin >> result[0];
+    cout << "Enter the second time: ";
     cin >> result[1];
+    cout << "Enter the third time: ";
     cin >> result[2];
 
-    double ave_result = (result[0] + result[1] + result[2]) / 3;
-    cout << "The all three time results are: " << result[0] << ", "
-         << result[1] << ", " << result[2] << endl;
-
-    cout << "The average result: " << ave_result << endl;
+    avg = (result[0] + result[1] + result[2]) / times;
+    cout << "The average of the three numbers is " << avg << endl;
 
     return 0;
 }

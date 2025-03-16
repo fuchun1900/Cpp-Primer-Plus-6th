@@ -1,24 +1,24 @@
-// Create by Shujia Huang on 2021-07-25
+// Create by fuchun on 2025-03-16
 #include <iostream>
 #include <cstring>
 
-int main() {
-
+int main(void)
+{
     using namespace std;
-    char first_name[20], last_name[20];
-    char final_name[50];
+    char fist_name[20];
+    char last_name[20];
+    char full_name[40];
 
     cout << "Enter your first name: ";
-    cin.getline(first_name, 20);
-
-    cout << "Enther your last name: ";
+    cin.getline(fist_name, 20);
+    cout << "Enter your last name: ";
     cin.getline(last_name, 20);
 
-    strcpy(final_name, last_name);
-    strcat(final_name, ", ");
-    strcat(final_name, first_name);
+    strcpy(full_name, last_name);
+    strcat(full_name, ", ");
+    strcat(full_name, fist_name);
 
-    cout << "Here's the information in a single string: " << final_name << endl;
-
-    return 0;
+    cout << "Here's the information in a single string: " << full_name << endl;
 }
+
+

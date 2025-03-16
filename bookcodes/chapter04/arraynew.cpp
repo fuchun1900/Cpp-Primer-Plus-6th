@@ -12,6 +12,7 @@ int main()
     cout << "Now p3[0] is " << p3[0] << " and ";
     cout << "p3[1] is " << p3[1] << ".\n";
     p3 = p3 - 1;                  // point back to beginning
+    cout << "p3 length is " << sizeof p3 << " bytes. and double is " << sizeof (double) << " bytes.\n";
     delete [] p3;                 // free the memory
     // cin.get();
     return 0; 

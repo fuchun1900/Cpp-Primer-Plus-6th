@@ -1,36 +1,30 @@
 // Create by Shujia Huang on 2021-07-25
 #include <iostream>
 #include <string>
+using namespace std;
 
 struct CandyBar
 {
-    std::string name;
+    string brand;
     double weight;
     int calories;
 };
 
-
-int main() {
-
-    using namespace std;
-
-    CandyBar candbar[3] = {
-        {"Mocha Munch", 2.3, 350},
-        {"Big Rabbit", 5, 300},
-        {"Joy Boy", 4.1, 430}
+int main()
+{
+    CandyBar shops[3] ={
+    {"Mocha Munch", 2.3, 350},
+    {"Big Rabbit", 5, 300},
+    {"Joy Boy", 4.1, 430}
     };
 
-    cout << "The name of the CandyBar: " << candbar[0].name << "\n"
-         << "The weight of the candy: " << candbar[0].weight << "\n"
-         << "The calories information: " << candbar[0].calories << "\n\n";
-
-    cout << "The name of the CandyBar: " << candbar[1].name << "\n"
-         << "The weight of the candy: " << candbar[1].weight << "\n"
-         << "The calories information: " << candbar[1].calories << "\n\n";
-
-    cout << "The name of the CandyBar: " << candbar[2].name << "\n"
-         << "The weight of the candy: " << candbar[2].weight << "\n"
-         << "The calories information: " << candbar[2].calories << endl;
+    for (int i = 0; i < 3; i++)
+    {
+        cout << "Brand: " << shops[i].brand << endl;
+        cout << "Weight: " << shops[i].weight << endl;
+        cout << "Calories: " << shops[i].calories << endl;
+    }
 
     return 0;
 }
+
