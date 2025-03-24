@@ -10,7 +10,7 @@ int main()
     cin >> name;
     cout << "Here is your name, verticalized and ASCIIized:\n";
     int i = 0;                  // start at beginning of string
-    while (name[i] != '\0')     // process to end of string
+    while (name[i])     // process to end of string
     {
         cout << name[i] << ": " << int(name[i]) << endl;
         i++;                    // don't forget this step

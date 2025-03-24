@@ -9,7 +9,7 @@ int main()
     int by;
     cin >> by;
     cout << "Counting by " << by << "s:\n";
-    for (int i = 0; i < 100; i = i + by)
+    for (int i = 0; i < 100; i += by)
         cout << i << endl;
     // cin.get();
     // cin.get();
