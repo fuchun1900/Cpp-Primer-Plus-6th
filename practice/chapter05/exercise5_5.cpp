@@ -1,31 +1,29 @@
-// Create by Shujia Huang on 2021-07-28
+// Create by fuchun on 2025-03-27
 #include <iostream>
-#include <string>
-
-int main() {
+#include <cstring>
+const int year = 3;
+const int month = 12;
+int main()
+{
     using namespace std;
-
-    string months[12] = {"Jan", "Feb", "Mar", "Apr", 
-                         "May", "Jun", "Jul", "Aug", 
-                         "Sep", "Oct", "Nov", "Dec"};
-    int sell[12];
+    const  char years[month][20] = {"January","February","March","April","May","June","July","August","September","October","November","December"};
+    int sales[year][month] = {0};
+    int total_sales_year[year] = {0};
     int total_sales = 0;
 
-    cout << "Enter the sales of book <<C++ for Fools>> each month." << endl;
-    for (int i=0; i < 12; ++i) {
-
-        cout << months[i] << ":";
-        cin >> sell[i];
-
-        total_sales += sell[i];
+    for (size_t i = 0; i < year; i++)
+    {
+        for (size_t j = 0; j < month; j++)
+        {
+            cout << "Enter the sales volume of " << years[i] << " in year " << i + 1 << ":";
+            cin >> sales[i][j];
+            total_sales_year[i] += sales[i][j];
+        }
     }
-
-    cout << "\nThe total sales is " << total_sales << endl;
-    for (int i=0; i < 12; ++i) {
-
-        cout << months[i] << ": " << sell[i] << endl;
+    for (size_t i = 0; i < year; i++)
+    {
+        total_sales += total_sales_year[i];
     }
-
-
-    return 0;
+    cout << "The total sales volume of " << year << " years " << " is " << total_sales << endl;
+    
 }

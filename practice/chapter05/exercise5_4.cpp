@@ -1,24 +1,22 @@
-// Create by Shujia Huang on 2021-07-28
+// Create by fuchun on 2025-03-27
 #include <iostream>
-
-int main() {
-    using namespace std;
-
-    double daphne_account = 100;
-    double cleo_account = 100;
-
-    int year = 0;
-    while (cleo_account <= daphne_account) {
-        ++year;
-
-        daphne_account += 10;
-        cleo_account += cleo_account * 0.05;
+using namespace std;
+int main()
+{
+    int years = 0;
+    double Daphne = 100.0;
+    double Cleo = 100.0;
+    while (Daphne >= Cleo)
+    {
+        Daphne += 100 * 0.1;
+        Cleo += Cleo * 0.05;
+        years++;
     }
 
-    cout << "After " << year << " Years. " 
-         << "Cleo's account is " << cleo_account
-         << " while more than the one of Daphne which is " 
-         << daphne_account << "." << endl;
-
+    cout << "After " << years << " years, Cleo's investment exceeds Daphne's investment." << endl;
+    cout << "Daphne's investment is " << Daphne << ", Cleo's investment is " << Cleo << endl;
+    
+    
     return 0;
 }
+

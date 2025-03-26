@@ -1,26 +1,17 @@
-// Create by Shujia Huang on 2021-07-28
+// Create by fuchun on 2025-03-27
 #include <iostream>
-
-
-int main() {
+int main()
+{
     using namespace std;
-
-    double s = 0;
-    double ch;
-
-    while (1) {
-
-        cout << "Enter a number (int/double) (0 to exit): ";
-        cin >> ch;
-
-        if (ch == 0) {
-            break;
-        }
-
-        s += ch;
-        cout << "Until now, the sum of the number you inputed is: " 
-             << s << endl;
-    }
+    double num = 0.0;
+    double sum = 0.0;
+    cout << "Enter a number: ";
+    do
+    {
+        cin >> num;
+        sum += num;
+    } while (num != 0);
+    cout << "The sum of the numbers you entered is " << sum << endl;
 
     return 0;
 }

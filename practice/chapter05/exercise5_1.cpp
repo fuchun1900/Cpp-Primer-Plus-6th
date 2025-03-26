@@ -1,30 +1,25 @@
-// Create by Shujia Huang on 2021-07-28
+// Create by fuchun on 2025-03-27
 #include <iostream>
 
-int main() {
+int main()
+{
     using namespace std;
-    int number1, number2;
+    int min = 0;
+    int max = 0;
+    int sum = 0;
 
-    cout << "Enter the first number: ";
-    cin >> number1;
+    cout << "Enter the minimum number: ";
+    cin >> min;
+    cout << "Enter the maximum number: ";
+    cin >> max;
 
-    cout << "Enter the second number: ";
-    cin >> number2;
-
-    if (number1 > number2) {
-        int tmp;
-        tmp = number1;
-        number1 = number2;
-        number2 = tmp;
+    for (size_t i = min; i <= max; i++)
+    {
+        sum += i;
     }
-
-    int s = 0;
-    for (int num=number1; num < number2+1; ++num) {
-        s += num;
-    }
-
-    cout << "Sum the number from " << number1 << " to " << number2 
-         << ", sum = " << s << endl;
+    cout << "The sum of all the numbers between " << min << " and " << max << " is " << sum << endl;
 
     return 0;
+    
 }
+

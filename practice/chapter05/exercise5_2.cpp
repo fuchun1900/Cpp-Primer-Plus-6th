@@ -1,25 +1,20 @@
-// Create by Shujia Huang on 2021-07-28
+// Create by fuchun on 2021-07-28
 #include <iostream>
 #include <array>
 
-
-const int ar_size = 100;
-int main() {
+const int ArSize = 101;
+int main()
+{
     using namespace std;
-
-    array<long double, ar_size> factorials;
-
-    factorials[0] = factorials[1] = 1;
-    for (int i = 2; i < ar_size+1; ++i) {
-
-        factorials[i] = i * factorials[i-1];
+    array<long double, ArSize> factorials = {1 ,1};
+    for (size_t i = 2; i < ArSize; i++)
+    {
+        factorials[i] = i * factorials[i - 1];
     }
-
-    for (int i = 0; i < ar_size + 1; ++i) {
-
-        cout << i << "! = " << factorials[i] << "\n";
+    for (size_t i = 0; i < ArSize; i++)
+    {
+        cout << i << "! = " << factorials[i] << endl;
     }
-    cout << endl;
-
+    
     return 0;
 }

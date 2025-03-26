@@ -1,25 +1,26 @@
-// Create by Shujia Huang on 2021-07-28
+// Create by fuchun on 2025/3/25
 #include <iostream>
 
-int main() {
-
+int main()
+{
     using namespace std;
-    int line_num = 0;
-
-    cout << "Enter the number of rows: ";
-    cin >> line_num;
-
-    cout << "Output:" << endl;
-    for (int i = line_num; i > 0; --i) {
-
-        for (int j = i-1; j > 0; --j) {
-            cout << ".";
+    int rows;
+    cout << "Enter number of rows:";
+    cin >> rows;
+    for (size_t i = 1; i <= rows; i++)
+    {
+        for (int j = rows - i , k = 1; k <= rows; j--,k++)
+        {
+            if (j > 0)
+            {
+                cout << (".") << '\t';
+            }
+            else
+            {
+                cout << ("*") << '\t';
+            }
         }
-        for (int j = line_num - (i-1); j > 0; --j) {
-            cout << "*";
-        }
-        cout << "\n";
+        cout << endl;
     }
-
     return 0;
 }

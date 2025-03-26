@@ -1,22 +1,22 @@
 #include <iostream>
 #include <string>
 
-int main() {
+int main()
+{
     using namespace std;
+    int counts = 0;
+    string words;
+    cout << "Enter words (to stop,type the word done):" << endl;
 
-    int word_count = 0;
-    string ch;
-    cout << "Enter a word (type 'done' to stop the program.): \n";
-    do {
-        cin >> ch;
+    do
+    {
+        cin >> words;
+        counts++;
+        cin.get();
+    } while (words != "done");
+    
+    cout << "You entered a total of " << counts - 1  << " words." << endl;
 
-        if (ch != "done") {
-            word_count++;
-        }
-
-    } while (ch != "done");
-
-    cout << "\nYou entered a total of " << word_count << " words." << endl;
-
+    
     return 0;
 }

@@ -1,35 +1,37 @@
-// Create by Shujia Huang on 2021-07-28
+// Create by fuchun on 2025-03-26  
 #include <iostream>
-#include <string>
+#include <cstring>
 
+using namespace std;
+struct car_info
+{
+    char manufacturer[50];
+    int date;
+};
 
-int main() {
-    using namespace std;
-
-    struct Car {
-        string company;
-        int year;  
-    };
-
-    int car_num = 0;
+int main()
+{
+    int counts = 0;
     cout << "How many cars do you wish to catalog? ";
-    cin >> car_num;
+    cin >> counts;
     cin.get();
-
-    Car *cars = new Car[car_num];
-    for (int i=0; i < car_num; ++i) {
-        cout << "Please enter the maker: ";
-        cin >> (cars+i)->company;
-
+    car_info *cars = new car_info[counts];
+    for (size_t i = 0; i < counts; i++)
+    {
+        cout <<"Car #" << i + 1 << ':' << endl;
+        cout << "Please enter the make: ";
+        cin.getline((cars + i)->manufacturer, 50);
         cout << "Please enter the year made: ";
-        cin >> (cars+i)->year;
+        cin >> (cars + i)->date;
+        cin.get();
     }
-
-    cout << "\nHere is your collection: \n";
-    for (int i=0; i < car_num; ++i) {
-        cout << cars[i].year << " " << cars[i].company << endl;
+    cout << "here is your collection:" << endl;
+    for (size_t i = 0; i < counts; i++)
+    {
+        cout << cars[i].date << '\n' << cars[i].manufacturer << endl;
     }
-
     delete [] cars;
+
     return 0;
+    
 }

@@ -1,23 +1,23 @@
-// Create by Shujia Huang on 2021-07-28
-#include <iostream>
+// Create by fuchun on 2025-03-26
 #include <cstring>
+#include <iostream>
 
-int main() {
+int main()
+{
     using namespace std;
+    int counts = 0;
+    char words[100];
+    cout << "Enter words (to stop,type the word done):" << endl;
 
-    int word_count = 0;
-    char ch[80];
-    cout << "Enter a word (type 'done' to stop the program.): \n";
-    do {
-        cin >> ch;
+    do
+    {
+        cin >> words;
+        counts++;
+        cin.get();
+    } while (strcmp(words, "done") != 0);
+    
+    cout << "You entered a total of " << counts - 1  << " words." << endl;
 
-        if (strcmp(ch, "done") != 0) {
-            word_count++;
-        }
-
-    } while (strcmp(ch, "done") != 0);
-
-    cout << "\nYou entered a total of " << word_count << " words." << endl;
-
+    
     return 0;
 }
