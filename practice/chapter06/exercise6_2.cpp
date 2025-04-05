@@ -1,34 +1,31 @@
-// Create by Shujia Huang on 2021-08-03
+// Create by fuchun on 2025-04-05
 #include <iostream>
-#include <array>
-
-
-int main() {
+#define SIZE 10
+int main()
+{
     using namespace std;
-    
-    const unsigned int size = 10;
-    array<double, size> donation;
-
-    double sum_value = 0;
-    unsigned int large_avg = 0, n = 0;
-
-    cout << "Enter 10 double value or type non-digital value to exit: ";
-    while ((n < size) && (cin >> donation[n])) {
-        
-        sum_value += donation[n];
-        ++n;
+    double donation[SIZE];
+    double sum = 0.0 ;
+    int count = 0 , bigger = 0;
+    cout << "Enter the numbers to calculate the average, enter 'q' to end: " << endl;
+    for (size_t i = 0; i < SIZE && cin >> donation[i] ; i++)
+    {
+        sum+= donation[i];
+        count++;
     }
-
-    double avg = sum_value / n;
-    for (int i=0; i < n; i++) {
-
-        if (donation[i]>avg)
-            ++large_avg;
+    if (count == 0)
+    {
+        cout << "No numbers entered." << endl;
+        return 0;
     }
-
-    cout << "The average value is: " << avg
-         << ", there are " << large_avg
-         << " larger than average value." << endl;
+    double average = sum/count;
+    cout << "The average is: " << average<< endl;
+    for (size_t i = 0; i < SIZE ; i++)
+    {
+        if (donation[i] > average)
+            bigger++;
+    }
+    cout << bigger <<  " numbers are bigger than average  " << endl;
 
     return 0;
 }

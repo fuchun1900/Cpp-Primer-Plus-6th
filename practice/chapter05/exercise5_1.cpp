@@ -1,25 +1,24 @@
 // Create by fuchun on 2025-03-27
+// modify by fuchun on 2025-04-05
 #include <iostream>
+#include <cmath>
 
 int main()
 {
     using namespace std;
-    int min = 0;
-    int max = 0;
-    int sum = 0;
-
-    cout << "Enter the minimum number: ";
-    cin >> min;
-    cout << "Enter the maximum number: ";
-    cin >> max;
-
-    for (size_t i = min; i <= max; i++)
+    int a, b, total = 0;
+    cout << "Enter two integers: ";
+    cin >> a >> b;
+    int start = a > b ? b : a;
+    int step = abs(a - b);
+    while (step-- >= 0)
     {
-        sum += i;
+        total += start;
+        start++;
     }
-    cout << "The sum of all the numbers between " << min << " and " << max << " is " << sum << endl;
-
-    return 0;
     
+    cout << "The sum of " << a << " between " << b << " is " << total << endl;
+
+    return  0;
 }
 

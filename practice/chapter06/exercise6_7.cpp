@@ -1,46 +1,44 @@
-// Create by Shujia Huang on 2021-08-03
+// Create by fuchun on 2025-04-05
 #include <iostream>
 #include <cctype>
-#include <string>
+#include <cstring>
 
-
-int main() {
-
+int main()
+{
     using namespace std;
-
-    unsigned int vowels = 0;
-    unsigned int consonants = 0;
-    unsigned int other = 0;
-    string input;
-
-    cout << "Enter words (q to quit): " << endl;
-    while (cin >> input) {
-        if (input == "q")
-            break;
-
-        if (isalpha(input[0])) {
-            switch(toupper(input[0])) {
-
-                case 'A':;
-                case 'E':;
-                case 'I':;
-                case 'O':;
-                case 'U':
-                    ++vowels;
-                    break;
-
-                default:
-                    ++consonants;
-                    break;
-            }
-        } else {
-            ++other;
+    char word[100];
+    cout << "Enter the words(q to quit): " << endl;
+    int vowel = 0 , consonats = 0 , other = 0;
+    while (cin >> word && strcmp(word, "q") != 0)
+    {
+        if (isalpha(word[0]))
+        {
+           switch (word[0])
+           {
+           case 'a':
+           case 'A':
+           case 'e':
+           case 'E':
+           case 'i':
+           case 'I':
+           case 'o':
+           case 'O':
+           case 'u':
+           case 'U':
+           vowel++;     
+           break;
+           
+           default:
+           consonats++;
+           break;
+           }
         }
+        else
+            other++;
     }
-
-    cout << vowels << " words beginning with vowels.\n"
-         << consonants << " words beginning with consonants.\n"
-         << other << " words beginning with other letter." << endl;
+    cout << vowel << " words start with vowel." << endl;
+    cout << consonats << " words start with consonats." << endl;
+    cout << other << " words start with other characters." << endl;
 
     return 0;
 }

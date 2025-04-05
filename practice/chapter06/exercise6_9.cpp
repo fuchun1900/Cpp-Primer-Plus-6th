@@ -1,76 +1,78 @@
-// Create by Shujia Huang on 2021-08-04
+// Create by fuchun on 2025-04-05
 #include <iostream>
 #include <fstream>
-#include <string>
 
-
-int main() {
-
+int main()
+{
     using namespace std;
-    const int Grand_Amount = 10000;
-    string file_name; 
-    ifstream in_file_handle;
 
-    struct Patron {
-        string name;
+    ifstream fin;
+    char filename[100];
+    cout << "Enter the file name: ";
+    cin.getline(filename, 100);
+    fin.open(filename);
+    if (!fin)
+    {
+        cout << "Could not open the file " << filename << endl;
+        exit(EXIT_FAILURE);
+    }
+
+    struct donation
+    {
+        char fullname[50];
         double amount;
     };
+    //cout << "Please enter the number of donations: ";
+    int num;
+    fin >> num;
+    donation *donations = new donation[num];
+    fin.get(); // discard the newline character
 
-    int contribute_num = 0;
-    cout << "Enter a file name: ";
-
-    getline(cin, file_name);  // 读一整行，行末回车符排除
-    in_file_handle.open(file_name.c_str());
-    in_file_handle >> contribute_num;
-    in_file_handle.get();  // 读掉空白(包括滞留在行末的回车符)
-
-    Patron *p_contribution = new Patron [contribute_num];
-    for (int i = 0; i < contribute_num; ++i) {
-        /*
-         * 4 Sam Stone
-         * 2000
-         * Freida Flass
-         * 100500
-         * Tammy Tubbs
-         * 5000
-         * Rich Raptor
-         * 55000
-         *
-         */
-        getline(in_file_handle, p_contribution[i].name);
-        in_file_handle >> p_contribution[i].amount;
-        in_file_handle.get();   // 读掉空白(包括滞留在行末的回车符)
+    for (int i = 0; fin.good() && i < num; i++)
+    {
+        //cout << "Please enter the donation name: ";
+        fin.getline(donations[i].fullname, 50);
+        //cout << "Please enter the donation amount: ";
+        fin >> donations[i].amount;
+        fin.get(); // discard the newline character
     }
-    in_file_handle.close();
+    int empty = 0;
+    int * GP = new int[num];
+    
+    for (size_t i = 0; i < num; i++)
+    {
+        if (donations[i].amount > 10000)
+            GP[i] = 1;
+    }
 
-    unsigned int grand_amount_n = 0;
-    cout << "\nGrand patron: " << endl;
-    for (int i = 0; i < contribute_num; ++i) {
-
-        if (p_contribution[i].amount > Grand_Amount) {
-            cout << "Contributor name: " << p_contribution[i].name << "\n"
-                 << "Contributor amount: " << p_contribution[i].amount << endl;
-            ++grand_amount_n;
+    cout << "The Grand Patrons are: " << endl;
+    for (size_t i = 0; i < num; i++)
+    {
+        if (GP[i] == 1)
+        {
+            cout << donations[i].fullname << endl;
+            empty++;
         }
     }
-
-    if (grand_amount_n == 0) {
-        cout << "None" << endl;
+    if (!empty)
+        cout << "No Grand Patrons." << endl;
+    empty = 0;
+    cout << "The Patrons are: " << endl;
+    for (size_t i = 0; i < num; i++)
+    {
+        if (GP[i] == 0)
+        {
+            cout << donations[i].fullname << endl;
+            empty++;
+        }
     }
+    if (!empty)
+        cout << "No Patrons." << endl;
 
-    bool is_empty = true;
-    cout << "\nPatrons: " << endl;
-    for (int i=0; i < contribute_num; ++i) {
-        cout << "Contributor name: " << p_contribution[i].name << "\n"
-             << "Contributor amount: " << p_contribution[i].amount << endl;
+    delete[] donations;
+    delete[] GP;
+    fin.close();
 
-        is_empty = false;
-    }
-
-    if (is_empty) {
-        cout << "** None **" << endl;
-    }
-
-    delete [] p_contribution;
     return 0;
+
 }

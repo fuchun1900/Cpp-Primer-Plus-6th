@@ -3,7 +3,7 @@
 a.out
 *.sh
 .DS_Store
-
+*.txt
 .idea/
 .vscode/
 # 忽略所有子目录中的 bin 文件夹中的 .out 文件
