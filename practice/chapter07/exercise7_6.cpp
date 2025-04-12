@@ -1,45 +1,67 @@
 //
-// Created by Shujia Huang on 2/9/22.
+// Created by fuchun on 2025/4/12.
 //
+
 #include <iostream>
 
-int Fill_array(double data[], int max_num) {
+int Fill_array(double * arr, int n);
+void Show_array(const double * arr, int n);
+void Reverse_array(double * arr, int n);
 
-    std::cout << "Enter double numbers (non-digital to quit): " << std::endl;
-    int i = 0;
-    while ((i < max_num) && (std::cin >> data[i]))
-        ++i;
+int main()
+{
+    using namespace std;
 
-    // return the size of array
-    return i;
-}
-
-void Show_array(const double data[], int n) {
-
-    std::cout << "The size of array is: " << n << " and the data is: ";
-    for (size_t i(0); i < n; ++i) {
-        std::cout << data[i] << " ";
+    cout << "Please the capacity of array:\n";
+    int capacity = 0;
+    cin >> capacity;
+    double * arr = new double[capacity];
+    int size = Fill_array(arr, capacity);
+    if (size > 0)
+    {
+        Show_array(arr, size);
+        Reverse_array(arr, size);
+        Show_array(arr, size);
     }
-    std::cout << "\n";
-}
-
-void Reverse_array(double data[], int n) {
-
-    for (size_t i(0); i < n/2; ++i) {
-        double t = data[i];
-        data[i] = data[n - 1 - i];
-        data[n - 1 - i] = t;
+    else
+    {
+        cout << "No numbers entered.\n";
     }
-
-    return;
+    
+       delete [] arr;
+}
+int Fill_array(double * arr, int n)
+{
+    using namespace std;
+    cout << "Please enter the numbers of array (q to quit):\n";
+    double input = 0;
+    int size = 0;
+    
+    for (int i = 0; i < n  && cin >> input ; i++)
+    {
+        arr[i] = input;
+        size++;
+    }
+    return size;
 }
 
-int main() {
-    double data[10];
-    int n = Fill_array(data, 10);
-    Show_array(data, n);
-    Reverse_array(data, n);
-    Show_array(data, n);
+void Reverse_array(double * arr, int n)
+{
+    using namespace std;
+    double temp = 0;
+    for (size_t start = 1 , end = n - 2 ; start < end ; start++, end--)
+    {
+        temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+    }
+}
 
-    return 0;
+void Show_array(const double * arr, int n)
+{
+    using namespace std;
+    cout << "The numbers of array are:\n";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
 }

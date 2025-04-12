@@ -11,26 +11,35 @@ typedef struct {
     float volume;
 } Box;
 
-void output(Box bx) {
-    std::cout << "Box maker: " << bx.maker << std::endl;
-    std::cout << "Box height: " << bx.height << std::endl;
-    std::cout << "Box width: " << bx.width << std::endl;
-    std::cout << "Box length: " << bx.length << std::endl;
-    std::cout << "Box volume: " << bx.volume << std::endl;
-}
+void modify_box_ptr(Box * box);
+void show_box(Box box);
 
-void calculate_volume(Box *p_bx) {
-    p_bx->volume = p_bx->height * p_bx->width * p_bx->length;
-}
+int main()
+{
+    using namespace std;
+    Box box1 = {"Box1", 10.0, 20.0, 30.0, 0.0};
+    Box box2 = {"Box2", 15.0, 25.0, 35.0, 0.0};
+    Box box3 = {"Box3", 20.0, 30.0, 40.0, 0.0};
 
-int main() {
-    Box bx = {"Jay", 0.49, 2.94, 0.49, 0.0};
-
-    output(bx);
-    calculate_volume(&bx);
-
-    std::cout << "\n--\n";
-    output(bx);
+    modify_box_ptr(&box1);
+    modify_box_ptr(&box2);
+    show_box(box1);
+    show_box(box2);
 
     return 0;
+}
+void modify_box_ptr(Box * box)
+{
+    using namespace std;
+    box->volume = box->height * box->width * box->length; 
+}
+void show_box(Box box)
+{
+    using namespace std;
+    cout << "Maker: " << box.maker << endl;
+    cout << "Height: " << box.height << endl;
+    cout << "Width: " << box.width << endl;
+    cout << "Length: " << box.length << endl;
+    cout << "Volume: " << box.volume << endl;
+    cout << "------------------------" << endl; 
 }

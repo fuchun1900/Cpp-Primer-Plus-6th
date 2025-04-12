@@ -1,39 +1,25 @@
 //
-// Created by Shujia Huang on 2/9/22.
+// Created by fuchun on 2025/4/12.
 //
-#include <iostream>
+# include <iostream>
 
+unsigned long factorial(int n);
 
-long factorial(int n) {
-
-    if (n == 0) {
-        return 1;
+int main()
+{
+    using namespace std;
+    int n;
+    cout << "Enter a positive integer: ";
+    while (cin >> n && n >= 0)
+    {
+        cout << n << "! = " << factorial(n) << endl;
+        cout << "Enter a positive integer (q to quit): ";
     }
-
-    return n * factorial(n-1);
 }
 
-
-int main() {
-
-    using namespace std;
-
-    int n;
-    cout << "Enter an integer number: ";
-    while (!(cin >> n)) {
-        cin.clear();
-        while (cin.get() != '\n') {
-            continue;
-        }
-        cout << "Please enter an integer number: ";
-    }
-
-    if (n < 0) {
-        cout << "Negative number don't have factorial." << endl;
-        exit(1);
-    }
-
-    long f = factorial(n);
-    cout << "The factorial of " << n << " is " << f << endl;
-    return 0;
+unsigned long factorial(int n)
+{
+    if(n > 1)
+        return n * factorial(n - 1);
+    return 1;
 }

@@ -1,51 +1,59 @@
 //
-// Created by Shujia Huang on 2/9/22.
+// Created by fuchun  on 2025/4/12.
 //
 #include <iostream>
+#include <cctype>
 
-int input(double data[], int max_num) {
-    int i = 0;
-    std::cout << "Enter up o 10 golf score (-1 to quit): " << std::endl;
-    while (std::cin >> data[i]) {
-        if (data[i] == -1) {
-            --i;
-            break;
-        }
-        ++i;
+void display(const float * , int);
+int read(float * , int);
+float average(const float * , int);
 
-        if (i == max_num)
-            break;
-    }
-
-    return (i < max_num) ? i+1 : max_num;
-}
-
-double calculate_average(const double data[], int n) {
-
-    double sum = 0;
-    for (size_t i(0); i < n; ++i) {
-        sum += data[i];
-    }
-
-    return sum / n;
-}
-
-void output(const double data[], int n) {
-
-    std::cout << "The score are: " << std::endl;
-    for (size_t i(0); i < n; ++i) {
-        std::cout << data[i] << " ";
-    }
-    std::cout << std::endl;
-}
-
-int main() {
-
-    double glf_score[10];
-    int n = input(glf_score, 10);
-    double avg_score = calculate_average(glf_score, n);
-    output(glf_score, n);
-    std::cout << "The average is: " << avg_score << std::endl;
-
+int main()
+{
+    using namespace std;
+    const int Size = 10;
+    float golf[Size] = {0};
+    int readnumber = 0;
+    cout << "Please enter your 10 golf scores,press 'q' to quit .\n";
+    cout << "You can enter up to 10 scores.\n";
+    readnumber = read(golf, Size);
+    display(golf, readnumber);
+    // cin.get();
+    // cin.get();
     return 0;
 }
+
+int read(float * arr, int n)
+{
+    using namespace std;
+    int readnumber = 0;  
+    while (readnumber < n && cin >> arr[readnumber])
+    {
+        readnumber++;
+        if (readnumber == n)
+            break;
+        if(cin.get() == '\n')
+            cout << "You can enter up to 10 scores.\n";
+    }
+    return readnumber;
+}
+
+float average(const float * arr, int size)
+{
+    using namespace std;
+    float sum = 0.0;
+    for (int i = 0; i < size; i++)
+        sum += arr[i];
+    return sum / size;
+}
+
+void display(const float * arr , int size)
+{
+    using namespace std;
+    cout << "Your golf scores are:\n";
+    for (int i = 0; i < size; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+    cout << "Average score: " << average(arr, size) << endl;
+}
+

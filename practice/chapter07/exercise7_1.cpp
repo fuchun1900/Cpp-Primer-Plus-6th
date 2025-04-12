@@ -1,24 +1,30 @@
 //
-// Created by Shujia Huang on 2/9/22.
-//
-#include <iostream>
+// Created by fuchun on 2025/04/12.
 
-int main() {
-    using namespace std;
+# include <iostream>
+using namespace std;
 
-    double x = 0, y = 0;
-    double h_avg = 0;
+float harmonic_mean(float a, float b);
 
+int main()
+{
+    float a, b;
     cout << "Enter two numbers: ";
-    cin >> x >> y;
-
-    while (x != 0 && y != 0) {
-        h_avg = 2 * x * y / (x+y);
-        cout << "The harmonic mean of " << x << " and " << y << " is " << h_avg << endl;
-        cout << "Enter the next two numbers: ";
-        cin >> x >> y;
-    }
-
-    return 0;
+    cin >> a >> b;
+    while (a * b != 0.0)
+    {
+        cout << "Harmonic mean of " << a << " and " << b << " is "
+             << harmonic_mean(a, b) << endl;
+        cout << "Enter two numbers: ";
+        cin >> a >> b;
+    } 
 }
+
+float harmonic_mean(float a, float b)
+{
+    return 2.0 * a * b / (a + b);
+}
+// The program calculates the harmonic mean of two numbers.
+
+
 
