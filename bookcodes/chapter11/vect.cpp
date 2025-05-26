@@ -16,17 +16,17 @@ namespace VECTOR
 
     // private methods
     // calculates magnitude from x and y
-    void Vector::set_mag()
+    double Vector::magval() const
     {
-        mag = sqrt(x * x + y * y);
+        return x * x + y * y;
     }
 
-    void Vector::set_ang()
+    double Vector::angval() const
     {
         if (x == 0.0 && y == 0.0)
-            ang = 0.0;
+            return 0.0;
         else
-            ang = atan2(y, x);
+            return atan2(y, x);
     }
 
     // set x from polar coordinate
