@@ -84,6 +84,8 @@ int main()
                 line_wait += cycle - temp.when();
                 served++;
             }
+            if (wait_time1 > 0)
+                wait_time1--;
             sum_line1 += line1.queuecount();
             if (wait_time2 <= 0 && !line2.isempty())
             {
