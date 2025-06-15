@@ -130,6 +130,7 @@ int main()
     cout << (double) (sum_line1 + sum_line2) / cyclelimit << endl;
     cout << " average wait time: "
         << (double) line_wait / served << " minutes\n";
+    cout << " customers in 1 hour: " << perhour << endl;
 
     cout << "Done!\n";
     // cin.get();
