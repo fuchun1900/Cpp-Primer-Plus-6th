@@ -19,15 +19,17 @@ int main()
     int i;
     for (i = 0; i < pupils; ++i)
         set(ada[i], quizzes);
-    cout << "\nStudent List:\n";
+    cout << "\nStudent List and score:\n";
     for (i = 0; i < pupils; ++i)
-        cout << ada[i].Name() << endl;
+        cout << ada[i]<< endl;
+        /*
     cout << "\nResults:";
     for (i = 0; i < pupils; ++i)
     {
         cout << endl << ada[i];
         cout << "average: " << ada[i].Average() << endl;
     }
+        */
     cout << "Done.\n";
     // cin.get();
 
