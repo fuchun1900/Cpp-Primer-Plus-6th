@@ -1,4 +1,5 @@
 // sales.cpp -- Sales implementation
+//modified by fuchun at 2025-08-16
 #include "/home/DEV/C++_Project/Cpp-Primer-Plus-6th/bookcodes/chapter15/sales.h"
 #include <iostream>
 using std::string;
