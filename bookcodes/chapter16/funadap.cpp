@@ -32,7 +32,7 @@ int main()
 
     vector<double> prod(LIM);
     transform(gr8.begin(), gr8.end(), prod.begin(),
-              bind1st(multiplies<double>(), 2.5));
+              binder1st(multiplies<double>(), 2.5));
     cout << "prod:\t";
     for_each(prod.begin(), prod.end(), Show);
     cout << endl;

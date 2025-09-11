@@ -32,12 +32,16 @@ int main()
         cout << "    " << (*it).first << "     "
             << (*it).second    << endl;
 
-    pair<MapCode::iterator, MapCode::iterator> 
-		auto range
+    pair<MapCode::iterator, MapCode::iterator> range
          = codes.equal_range(718);
-    cout << "Cities with area code 718:\n";
+    cout << "\nCities with area code 718:\n";
     for (it = range.first; it != range.second; ++it)
         cout <<  (*it).second    << endl;
     // cin.get();
+    cout << "\nCities with area code from 415 to 600 in C++11\n";
+    for (auto pos = codes.lower_bound(415);
+         pos != codes.upper_bound(600); ++pos)
+        cout << (*pos).second << endl;
+
     return 0; 
 }
