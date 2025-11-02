@@ -10,7 +10,7 @@ int main()
     cout << "\"Furry Friends\" is $" << price1 << "!\n";
     cout << "\"Fiery Fiends\" is $" << price2 << "!\n";
 
-    cout.precision(2);
+    cout.precision(3);
     cout << "\"Furry Friends\" is $" << price1 << "!\n";
     cout << "\"Fiery Fiends\" is $" << price2 << "!\n";
 	// std::cin.get();

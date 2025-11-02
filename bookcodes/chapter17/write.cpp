@@ -27,5 +27,10 @@ int main()
     cout << "Exceeding string length:\n";
     cout.write(state2, len + 5) << endl;
     // std::cin.get();
+
+    long val = 560031841;
+    cout.write((char *)&val, sizeof(val)) << endl;
+
+
     return 0; 
 }
